@@ -17,9 +17,7 @@ import { SignUpComponent } from './users/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './users/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './users/verify-email/verify-email.component';
 import { AuthService } from './services/auth.service';
-import {AngularFireDatabaseModule} from 'angularfire2/database'
-
-
+import {AngularFireDatabaseModule} from 'angularfire2/database';
 
 // angular material
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -41,17 +39,22 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSelectModule} from '@angular/material/select';
+import {MatTabsModule} from '@angular/material/tabs';
+
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
+
 
 
 import {ItemService} from './services/glassware.service';
+
 import { GlasswarelistComponent } from './items/glassware/glasswarelist/glasswarelist.component';
 import { AdminNavComponent } from './admin-nav/admin-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule, MatListModule, MatNativeDateModule } from '@angular/material';
 import { ItemAdditionService } from './services/item-addition.service';
 import { AddnewcartComponent } from './items/addnewcart/addnewcart.component';
-
-
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AddhistoryComponent } from './items/addhistory/addhistory.component';
@@ -61,6 +64,12 @@ import { RemhistoryComponent } from './items/remhistory/remhistory.component';
 import { ChemicallistComponent } from './items/chemicals/chemicallist/chemicallist.component';
 import { NewchemicalsdialogComponent } from './items/chemicals/newchemicalsdialog/newchemicalsdialog.component';
 import { ChemicalquantitydialogComponent } from './items/chemicals/chemicalquantitydialog/chemicalquantitydialog.component';
+import { UiService } from './services/ui.service';
+import { LendingMainFormComponent } from './lending_items/lending-main-form/lending-main-form.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import { LendingFormStep1Component } from './lending_items/lending-form-step2/lending-form-step2.component';
+import { LendingquantitydialogComponent } from './lending_items/lendingquantitydialog/lendingquantitydialog.component';
+
 
 
 @NgModule({
@@ -85,10 +94,15 @@ import { ChemicalquantitydialogComponent } from './items/chemicals/chemicalquant
     ChemicallistComponent,
     NewchemicalsdialogComponent,
     ChemicalquantitydialogComponent,
+    LendingMainFormComponent,
+    LendingFormStep1Component,
+    LendingquantitydialogComponent,
+
 
    
 
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -106,6 +120,7 @@ import { ChemicalquantitydialogComponent } from './items/chemicals/chemicalquant
     MatCardModule,
     MatTableModule,
     MatIconModule,
+    MatExpansionModule,
     MatPaginatorModule,
     MatSortModule,
     MatDialogModule,
@@ -118,13 +133,18 @@ import { ChemicalquantitydialogComponent } from './items/chemicals/chemicalquant
     MatNativeDateModule,
     FlexLayoutModule,
     MatExpansionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
+    MatStepperModule,
+    MatTabsModule
   ],
-  providers: [AuthService,{ provide: FirestoreSettingsToken, useValue: {} },ItemService,ItemAdditionService,MatDatepickerModule],
+  providers: [AuthService,{ provide: FirestoreSettingsToken, useValue: {} },ItemService,ItemAdditionService,MatDatepickerModule,UiService],
   bootstrap: [AppComponent],
   entryComponents:[NewglasswareComponent,
     NewchemicalsdialogComponent,
     QuantitydialogComponent,
-    ChemicalquantitydialogComponent]
+    ChemicalquantitydialogComponent,
+    LendingquantitydialogComponent]
 })
 export class AppModule { }
